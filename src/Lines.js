@@ -9,6 +9,7 @@ import {
 import {
   Canvas,
   center,
+  Group,
   Path,
   Points,
   Skia,
@@ -43,7 +44,18 @@ export const Lines = ({ navigation }) => {
         width,
       }}
     >
+      <View style={{flex: 1, backgroundColor: 'black', paddingTop: 10 }}>
       <Canvas style={{ flex: 1, backgroundColor: 'black' }}>
+        <Path
+          path={'M 100 100 L 300 300'}
+          strokeWidth={3}
+          color='orange'
+          style='stroke'
+        />
+        <Path path={'M140 20C73 20 20 74 20 140c0 135 136 170 228 303 88-132 229-173 229-303 0-66-54-120-120-120-48 0-90 28-109 69-19-41-60-69-108-69z'} 
+          color='magenta'
+          style='stroke'   
+          strokeWidth={2}/>
         <Points
           points={points}
           mode='polygon'
@@ -51,15 +63,16 @@ export const Lines = ({ navigation }) => {
           style='stroke'
           strokeWidth={4}
         />
-        <Path
-          path={'M 100 100 L 300 300'}
-          strokeWidth={2}
-          color='orange'
-          style='stroke'
-        />
         <Path path={path} strokeWidth={2} color='green' style='stroke' />
       </Canvas>
-      <View style={{ display: 'flex', alignItems: 'flex-end' }}>
+      </View>
+      <View
+        style={{
+          display: 'flex',
+          alignItems: 'flex-end',
+          backgroundColor: 'white',
+        }}
+      >
         <Button
           color='black'
           title='Go to SVG stars'

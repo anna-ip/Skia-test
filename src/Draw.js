@@ -25,15 +25,16 @@ import {
 } from '@shopify/react-native-skia';
 
 const imageSize = 400;
-const padding = 24;
-const r = 8;
+const padding = 10;
+const r = 10;
 
 export const Draw = ({ navigation }) => {
   const [paths, setPaths] = useState([]);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
-  const { width } = useWindowDimensions('window');
-  const paletteOfColors = ['#05E273', '#0C0C91'];
   const image = useImage(require('../assets/anna.jpg'));
+  const { width } = useWindowDimensions('window');
+
+  const paletteOfColors = ['#05E273', '#0C0C91'];
   const roundedRect = rrect(
     rect(padding, padding, imageSize - padding * 2, imageSize - padding * 2),
     r,
@@ -76,6 +77,7 @@ export const Draw = ({ navigation }) => {
             <Canvas
               style={{
                 flex: 1,
+                backgroundColor: 'black',
               }}
             >
               <Group clip={roundedRect}>
