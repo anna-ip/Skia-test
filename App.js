@@ -7,17 +7,21 @@ import { Lines } from './src/Lines';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Stars } from './src/Stars';
 import { Draw } from './src/Draw';
+import { Welcome } from './src/Welcome';
+import { Animation } from './src/Animation';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Circles'>
+      <Stack.Navigator initialRouteName='Welcome'>
+        <Stack.Screen name='Welcome' component={Welcome} />
         <Stack.Screen name='Polygons' component={Lines} />
         <Stack.Screen name='Ellipses' component={Circles} />
         {/* <Stack.Screen name='Demo' component={GestureDemo} /> */}
         <Stack.Screen name='SVGStars' component={Stars} />
+        <Stack.Screen name='Animation' component={Animation} />
         <Stack.Screen name='Draw' component={Draw} />
       </Stack.Navigator>
       <StatusBar style='auto' />
