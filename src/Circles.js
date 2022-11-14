@@ -61,8 +61,8 @@ export const Circles = ({ navigation }) => {
       <View style={{ display: 'flex', alignItems: 'flex-end' }}>
         <Button
           color='black'
-          title='Go to Draw'
-          onPress={() => navigation.push('Draw')}
+          title='Go to Animations'
+          onPress={() => navigation.push('Animation')}
         />
       </View>
     </SafeAreaView>

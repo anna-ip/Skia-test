@@ -138,9 +138,9 @@ export const Draw = ({ navigation }) => {
                 onPress={() => setPaths([])}
               />
               <Button
-                title='Go to Polygons'
+                title='Go to start'
                 color='black'
-                onPress={() => navigation.push('Polygons')}
+                onPress={() => navigation.push('Welcome')}
               />
             </View>
           </SafeAreaView>

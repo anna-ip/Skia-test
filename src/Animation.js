@@ -10,6 +10,9 @@ import {
   vec,
   useSpring,
   Rect,
+  DiffRect,
+  rect,
+  rrect,
 } from '@shopify/react-native-skia';
 import { Text, Button, View, Dimensions, Pressable } from 'react-native';
 
@@ -17,7 +20,11 @@ const { width } = Dimensions.get('screen');
 
 export const Animation = ({ navigation }) => {
   const [toggled, setToggled] = useState(false);
-  const position = useSpring(toggled ? width - 80 : 50);
+  const position = useSpring(toggled ? width - 100 : 50);
+
+  const outer = rrect(rect(0, 46, width, 156), 50, 50);
+  const inner = rrect(rect(50, 96, width - 100, 156 - 100), 50, 50);
+
   return (
     <View
       style={{
@@ -38,15 +45,7 @@ export const Animation = ({ navigation }) => {
           }}
         >
           <Group blendMode='multiply'>
-            <Oval
-              strokeWidth={10}
-              style='stroke'
-              x={0}
-              y={100}
-              width={width}
-              height={50}
-              color='#9F5EE2'
-            />
+            <DiffRect inner={inner} outer={outer} color='#9F5EE2' />
             <Oval x={position} y={100} width={50} height={50}>
               <Paint>
                 <RadialGradient
@@ -74,6 +73,7 @@ export const Animation = ({ navigation }) => {
           style={{
             borderWidth: 1,
             borderColor: 'black',
+            borderRadius: 50,
             width: 100,
             padding: 10,
             alignSelf: 'center',

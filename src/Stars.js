@@ -49,7 +49,7 @@ export const Stars = ({ navigation }) => {
         <Button
           color='black'
           title='Go to Ellipses'
-          onPress={() => navigation.push('Animation')}
+          onPress={() => navigation.push('Ellipses')}
         />
       </View>
     </SafeAreaView>
